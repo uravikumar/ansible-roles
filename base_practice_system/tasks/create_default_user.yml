@@ -1,0 +1,20 @@
+---
+- name: "Create ansible-ravi group"
+  group:
+    name: ansible-ravi
+    gid: 225334
+    state: present
+
+- name: "Create ansible-ravi user for ansible playbook runs"
+  user:
+    name: ansible-ravi
+    uid: 225334
+    create_home: True
+    password: "{{ default_password | password_hash('sha512') }}"
+    state: present
+
+- name: "Setup passwordless login for ansible-ravi"
+  authorized_key:
+    user: ansible-ravi
+    key: "{{lookup('file', 'ansible-ravi.pub')}}"
+    state: present

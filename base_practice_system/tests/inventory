@@ -1,2 +1,2 @@
-localhost
-
+centos5
+ubuntu1 ansible_user=ubuntu1 ansible_ssh_pass=ubuntu1

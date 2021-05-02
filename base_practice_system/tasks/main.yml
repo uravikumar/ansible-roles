@@ -1,2 +1,14 @@
 ---
 # tasks file for base_practice_system
+
+- name: "Install base packages"
+  include: "install_base_packages_{{ ansible_distribution }}.yml"
+
+- name: "Copy /etc/hosts file so that nodes can use hostname"
+  include: copy_hosts_file.yml
+
+- name: "Create default user for ansible-playbooks"
+  include: create_default_user.yml
+
+- name: "configure_sudo_access.yml"
+  include: configure_sudo_access.yml

@@ -1,0 +1,8 @@
+---
+- name: "Provide full sudo rights for ansible-ravi user"
+  copy:
+    src: ansible-ravi-sudo
+    dest: /etc/sudoers.d/ansible-ravi
+    owner: root
+    group: root
+    mode: 0440

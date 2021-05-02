@@ -1,0 +1,10 @@
+---
+base_packages:
+  - vim
+  - ntpdate
+  - ntp
+  - cowsay
+  - htop
+  - tree
+  - lvm2
+  - apache2

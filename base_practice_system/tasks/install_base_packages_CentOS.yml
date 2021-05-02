@@ -1,0 +1,9 @@
+---
+- name: "Include OS specific packages for CentOS"
+  include_vars: "{{ ansible_distribution }}_packages.yml"
+
+- name: "Install base packages on CentOS Family systems"
+  yum:
+    name: "{{ base_packages }}"
+    state: latest
+  when: ansible_distribution == "CentOS"

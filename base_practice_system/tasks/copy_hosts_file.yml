@@ -1,0 +1,5 @@
+---
+- name: "Copy /etc/hosts file so that nodes can use hostnames"
+  copy:
+    src: /etc/hosts
+    dest: /etc/
