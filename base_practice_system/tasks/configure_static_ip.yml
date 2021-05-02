@@ -1,0 +1,8 @@
+---
+- name: "Configure static ip for the system"
+  copy:
+    src: ifcfg-enp0s8
+    dest: /etc/sysconfig/network-scripts/
+    owner: root
+    group: root
+    mode: 644

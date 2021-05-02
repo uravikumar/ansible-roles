@@ -12,3 +12,8 @@
 
 - name: "configure_sudo_access.yml"
   include: configure_sudo_access.yml
+
+- name: "Configure static IP Address" 
+  include: configure_static_ip.yml
+  tags:
+    - static_ip
