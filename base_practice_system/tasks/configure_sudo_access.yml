@@ -1,5 +1,6 @@
 ---
 - name: "Provide full sudo rights for ansible-ravi user"
+  become: yes
   lineinfile:
     path: /etc/sudoers.d/ansible-ravi
     create: yes
@@ -9,4 +10,3 @@
     line: 'ansible-ravi ALL=(ALL) NOPASSWD: ALL'
     state: present
     validate: /usr/sbin/visudo -cf %s
-  register: sudo_result
