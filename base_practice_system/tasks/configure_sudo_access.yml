@@ -1,8 +1,12 @@
 ---
 - name: "Provide full sudo rights for ansible-ravi user"
-  copy:
-    src: ansible-ravi-sudo
-    dest: /etc/sudoers.d/ansible-ravi
+  lineinfile:
+    path: /etc/sudoers.d/ansible-ravi
+    create: yes
     owner: root
     group: root
     mode: 0440
+    line: 'ansible-ravi ALL=(ALL) NOPASSWD: ALL'
+    state: present
+    validate: /usr/sbin/visudo -cf %s
+  register: sudo_result
