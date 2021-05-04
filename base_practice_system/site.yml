@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: True
+
+  tasks:
+
+    - name: "Include base practice role"
+      include_role:
+        name: base_practice_system

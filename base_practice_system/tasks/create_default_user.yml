@@ -9,6 +9,7 @@
   user:
     name: ansible-ravi
     uid: 225334
+    group: ansible-ravi
     create_home: True
     password: "{{ default_password | password_hash('sha512') }}"
     state: present

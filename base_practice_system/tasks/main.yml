@@ -2,18 +2,27 @@
 # tasks file for base_practice_system
 
 - name: "Install base packages"
-  include: "install_base_packages_{{ ansible_distribution }}.yml"
+  include_tasks: "install_base_packages_{{ ansible_distribution }}.yml"
+  tags:
+    - install_packages
 
 - name: "Copy /etc/hosts file so that nodes can use hostname"
-  include: copy_hosts_file.yml
-
+  include_tasks: copy_hosts_file.yml
+  tags:
+    - hosts_file
+    
 - name: "Create default user for ansible-playbooks"
-  include: create_default_user.yml
+  include_tasks: create_default_user.yml
+  tags:
+    - default_user
 
 - name: "configure_sudo_access.yml"
-  include: configure_sudo_access.yml
+  include_tasks: configure_sudo_access.yml
+  tags:
+    - configure_sudo
 
 - name: "Configure static IP Address" 
-  include: configure_static_ip.yml
+  include_tasks: configure_static_ip.yml
   tags:
+    - never
     - static_ip
