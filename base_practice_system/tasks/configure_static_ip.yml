@@ -1,8 +1,9 @@
 ---
 - name: "Configure static ip for the system"
-  copy:
-    src: ifcfg-enp0s8
-    dest: /etc/sysconfig/network-scripts/
+  template:
+    src: ifcfg-enp0s8.j2
+    dest: /etc/sysconfig/network-scripts/ifcfg-enp0s8
     owner: root
     group: root
     mode: 644
+  when: ansible_distribution == "CentOS"

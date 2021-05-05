@@ -23,6 +23,4 @@
 
 - name: "Configure static IP Address" 
   include_tasks: configure_static_ip.yml
-  tags:
-    - never
-    - static_ip
+  tags: [ never, static_ip ]
