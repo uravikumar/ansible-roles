@@ -1,0 +1,13 @@
+---
+- name: "Install required RPMs to setup NFS server"
+  yum:
+    name: nfs-utils
+    state: latest
+  when: ansible_distribution == "CentOS"
+
+- name: "Enable and start NFS service"
+  service:
+    name: nfs
+    state: started
+    enabled: yes
+  when: ansible_distribution == "CentOS"

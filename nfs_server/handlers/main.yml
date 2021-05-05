@@ -1,0 +1,6 @@
+---
+# handlers file for nfs_server
+- name: "reload nfs"
+  service:
+    name: nfs
+    state: reloaded

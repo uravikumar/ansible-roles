@@ -1,0 +1,13 @@
+---
+
+- name: "Load exports list file"
+  include_vars: nfs_exports_list.yml
+
+- name: "Add shares to /etc/exports file"
+  lineinfile:
+    path: /etc/exports
+    regexp: "{{ item.key }}"
+    line: "{{ item.key }}    {{ item.value.export_options | join(' ') }}"
+    state: present
+  with_dict: "{{ nfs_exports }}"
+  notify: reload nfs

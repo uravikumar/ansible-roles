@@ -1,0 +1,7 @@
+---
+# tasks file for nfs_server
+- name: "Install NFS server package"
+  include_tasks: install_package.yml
+
+- name: "Add exports list to /etc/exports file"
+  include_tasks: add_exports.yml
