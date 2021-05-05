@@ -9,3 +9,4 @@ base_packages:
   - lvm2
   - epel-release
   - redhat-lsb-core
+  - nfs-utils
