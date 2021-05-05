@@ -1,8 +1,5 @@
 ---
 
-- name: "Load exports list file"
-  include_vars: nfs_exports_list.yml
-
 - name: "Add shares to /etc/exports file"
   lineinfile:
     path: /etc/exports

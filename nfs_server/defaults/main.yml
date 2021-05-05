@@ -1,2 +1,5 @@
 ---
 # defaults file for nfs_server
+
+#This dictionary is to be filled in host_vars
+nfs_exports: {}
